@@ -1,0 +1,57 @@
+{% extends "janki/layout.html" %}
+
+{% block title %}Add New Card{% endblock %}
+
+{% block content %}
+    <h1>Add card</h1>
+    <form action="{% url 'add_card' %}" method="post">
+        {% csrf_token %}
+        <!-- Select Deck -->
+         <fieldset>
+            <legend>Choose a deck</legend>
+            <div>
+                {% if user.is_authenticated %}
+                    {% if user.added_decks.all %}
+                        <label for="choose-deck">Deck:</label>
+                        <select id="choose-deck" name="choose_deck" required>
+                            <option value="" disabled {% if not selected_deck %}selected{% endif %}>Choose an option</option>
+                            {% for deck in user.added_decks.all %}
+                                <option value="{{ deck.title }}" {% if selected_deck == deck.title %}selected{% endif %}>{{ deck.title }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+                {% endif %}
+            </div>
+         </fieldset>
+        
+        <!-- Front and back inputs -->
+         <fieldset>
+            <legend>Input Front and Back</legend>
+            <div class="form-group">
+                <label for="front">Front Side:</label>
+                <textarea id="front" name="front" placeholder="Front side of the card" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="back">Back Side:</label>
+                <textarea id="back" name="back" placeholder="Back side of the card" required></textarea>
+            </div>
+        </fieldset>
+        
+        <!-- Reversible boolean -->
+        <fieldset>
+            <legend>Is card reversible?</legend>
+            <div>
+                <input type="radio" id="reversible-no" name="reversible" value="no" checked>
+                <label for="reversible-no">No</label>
+            </div>
+            <div>
+                <input type="radio" id="reversible-yes" name="reversible" value="yes">
+                <label for="reversible-yes">Yes</label>
+            </div>
+        </fieldset>
+
+        <input class="main-button" type="submit" value="Add Card">
+    </form>
+
+{% endblock %}

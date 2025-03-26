@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Janki{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'janki/styles.css' %}">
+</head>
+
+<body>
+    <header class="header-class">
+        Janki
+    </header>
+    <!-- Navigation Menu-->
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Decks</a></li>
+            <li><a href="{% url 'stats' %}">Stats</a></li>
+            <li>
+                {% if deck %}
+                    <a href="{% url 'add_card' %}?deck_id={{ deck.id }}">Add</a>
+                {% else %}
+                    <a href="{% url 'add_card' %}">Add</a>
+                {% endif %}
+            </li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
+        </ul>   
+    </nav>
+
+    <div class="layout-container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <hr>
+        <p class="footer">Signed in as <strong>{{ user.username }}</strong></span></p>
+        <hr>
+    </footer>
+
+</body>
+</html>

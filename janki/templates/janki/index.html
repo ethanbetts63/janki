@@ -1,0 +1,37 @@
+{% extends "janki/layout.html" %}
+
+{% block title %}My Decks{% endblock %}
+
+{% block content %}
+    <div>
+        <div>
+            <h1>My Decks</h1>
+            <a href="{% url 'create_deck' %}" class="main-button">
+                Create New Deck
+            </a>
+        </div>
+
+        {% if user.is_authenticated %}
+            {% if user.added_decks.all %}
+                <div class="display-decks">
+                    {% for deck in user.added_decks.all %}
+                        <a href="{% url 'view_deck' deck.id %}" class="deck-item">
+                            <div>
+                                <p><strong>{{ deck.title }}</strong> {{ deck.cards.count }} cards</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-decks-message">
+                    <p>You don't have any decks yet.</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="no-decks-message">
+                <p>Please log in to view your decks.</p>
+                <a href="{% url 'login' %}">Log in</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

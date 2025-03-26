@@ -1,0 +1,12 @@
+
+- reversible card logic
+- comment and clean 
+- stats
+- add card should stay on add card ofter add is hit
+- index should show number of due 
+- edit card
+- delete card
+- add access authentication. users should only be able to edit decks they have added
+- also they really need to be able to fork a deck 
+- github prjoect
+- log in view 

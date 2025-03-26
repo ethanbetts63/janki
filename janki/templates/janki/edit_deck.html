@@ -1,0 +1,23 @@
+{% extends "janki/layout.html" %}
+
+{% block title %}{{ deck.title }}{% endblock %}
+
+{% block content %}
+<h1>Edit Deck</h1>
+    <form action="{% url 'edit_deck' deck.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{{ deck.title }}</legend>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input autofocus class="form-control" type="text" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input class="form-control" type="text" name="description" placeholder="Description">
+            </div>
+        </fieldset>
+        
+        <input class="main-button" type="submit" value="Submit">
+    </form>
+{% endblock %}

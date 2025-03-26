@@ -1,0 +1,258 @@
+/* Global Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #fff;
+}
+
+/* Header */
+.header-class {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+/* Navigation */
+nav {
+    background-color: #444;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    flex: 1; 
+    text-align: center; 
+}
+
+nav a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+}
+
+nav a:hover {
+    background-color: #777;
+}
+
+nav ul li a.active {
+    background-color: #555;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Layout */
+#layout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#main-content {
+    flex: 3;
+    padding-right: 1rem;
+}
+
+.class-center {
+    text-align: center;
+}
+
+/* Deck Display */
+.display-decks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+}
+  
+.deck-item {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #333;
+    width: 80%;
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: block;
+}
+  
+.deck-item:hover {
+    background-color: #444;
+}
+  
+.deck-item p {
+    color: white;
+}
+
+.no-decks-message {
+    text-align: center;
+    color: #ff6b6b;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+/* Buttons */
+.side-by-side {
+    display: flex;
+    flex-direction: rorw;
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.secondary-button {
+    display: block;
+    width: 100px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.main-button:hover, .secondary-button:hover {
+    background-color: #777;
+}
+
+/* Form Styling */
+form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+fieldset {
+    border: 1px solid #555;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+select, 
+textarea, 
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: #fff;
+    box-sizing: border-box; /
+}
+
+input[type="submit"].main-button {
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: block;
+}
+
+input[type="submit"].main-button:hover {
+    background-color: #777;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Radio buttons styling */
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Focus states */
+select:focus, 
+textarea:focus,
+input:focus {
+    outline: none;
+    border-color: #777;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Footer*/
+.footer {
+    text-align: center;
+}
+
+hr {
+    border: none; /* Removes default border */
+    height: 2px; /* Adjust thickness */
+    background-color: #444; /* Sets the color */
+}

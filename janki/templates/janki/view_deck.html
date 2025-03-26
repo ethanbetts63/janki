@@ -1,0 +1,22 @@
+{% extends "janki/layout.html" %}
+
+{% block title %}{{ deck.title }}{% endblock %}
+
+{% block content %}
+    <div class="class-center">
+        <h1>{{ deck.title }}</h1>
+        <h2>Description:</h2>
+        <p>{{ deck.description }}</p>
+        <p>This deck contains {{ deck.cards.count }} cards.</p>
+        {% if review_complete %}
+            <div class="alert alert-success">
+                Review completed successfully! 🎉
+            </div>
+        {% endif %}
+        
+        <div class="side-by-side">
+            <a class="secondary-button" href="{% url 'edit_deck' deck.id %}">Edit</a>
+            <a class="secondary-button" href="{% url 'review_deck' deck.id %}">Review</a>
+        </div>
+    </div>
+{% endblock %}
